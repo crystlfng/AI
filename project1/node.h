@@ -7,6 +7,7 @@ class Node{
     public:
         Node* parent;
         vector<vector<int> > curr;
+        vector<vector<int> > goal;
         int x, y; //the coordinates to the blanck tile
         int gn;
         int hn;
@@ -14,6 +15,7 @@ class Node{
 
         int misplaced();
         int euclidean();
+
 
         Node* up();
         Node* down();
