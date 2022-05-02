@@ -4,9 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <stack>
-#include "node.h"
-#include "node.cpp"
-#include <queue> 
+#include <queue>  
 #include <list>
 using namespace std;
 
@@ -15,7 +13,6 @@ class Node{
         vector<vector<int> > curr;
         int hn;
         int gn;
-
         int cost;
         Node(vector<vector<int> > curr, int hn, int gn);
         Node(){};
@@ -32,6 +29,7 @@ Node::Node(vector<vector<int> > c, int h, int g){
 pair<int,int> findBlank(vector<vector<int> > puzzle);
 void printp(vector<vector<int> > puzzle);
 bool isValid(int i, int j);
+int calcH( vector<vector<int> > puzzle, int searchType);
 
 
 vector<Node> getChildren(Node puz, int searchType){
@@ -70,7 +68,7 @@ vector<Node> getChildren(Node puz, int searchType){
         moves.push_back(child);
     }
     //right
-    if(j > 0){
+    if(j < 3){
         vector<vector<int> > temp = puz.curr;
         swap(temp[i][j], temp[i][j-1]);
         Node child = Node(temp, calcH(temp, searchType)+ p.getGn() +1, p.getGn()+1);
@@ -87,48 +85,50 @@ void search(vector<vector<int>> grid, int searchType, vector<vector<int> > goal)
     initial.gn = 0; //this is the first one depth is 0
     initial.cost = initial.gn + initial.hn;
 
-    queue<Node> path;
+    printp(initial.curr);
 
-    path.push(initial);
+    int movesCount = 0;
+
+    vector<Node> path;
+    path.push_back(initial);
+
+    vector<Node> heap = path;
+    make_heap(heap.begin(), heap.end());
 
     vector<Node> seen;
+    seen.push_back(initial);
+    Node current;
 
-    while(!path.empty()){
-        vector<Node> children = getChildren(initial,searchType);
+    cout << "test" << endl;
+    while(path.empty()){
+        current = heap.front(); 
+
+        cout << "The best state to expand with g(n) = "<< current.gn << " and h(n) = " << current.hn <<endl;
+
+        printp(current.curr);
+
+        if(current.curr == goal){
+            break;
+        }
+
+        heap.erase (heap.begin(), heap.begin()+1);
+
+        vector<Node> children = getChildren(current,searchType);
+
         for(int i =0;i <children.size(); i++){
-            if(find(seen.begin(), seen.end(), children[i]) != seen.end()){}
+            //if the current child has been seen before do nothing
+            if(std::find(seen.begin(), seen.end(), children[i]) != seen.end()){}
             else{
                 seen.push_back(children[i]);
+                heap.push_back(children[i]);
+                make_heap(heap.begin(), heap.end());
             }
-
-            if(children[i].cost < temp)
-            
-            
-
         }
 
     }
 
-    // someDatastruck = append(initial);
-    // while someDataStruc is not empty
-    //   currNodeChildren = getChildren(grid);
-    //   for child in currNodeChildren:
-    //     if child has been seen: continue
-    //     seen.append(child)
-    //     if this child.cost < temp:
-    //       temp = child
-    //     temp add to someDataStruc
 }
 
-
-
-bool isValid(int i, int j){
-    if( i < 0 || j < 0)
-        return false;
-    else
-        return false;
-    return true;
-}
 
 pair<int,int> findBlank(vector<vector<int> > puzzle){
     for(int i = 0; i< 3; i ++){
@@ -138,6 +138,43 @@ pair<int,int> findBlank(vector<vector<int> > puzzle){
             }
         }
     }
+}
+
+int misplaced(vector<vector<int> > puzzle){
+    vector<int> temp = {1,2,3};
+    vector<int> temp1 = {4,5,6};
+    vector<int> temp2 = {7,8, 0};
+    vector<vector<int> > goal;
+    goal.push_back(temp);
+    goal.push_back(temp1);
+    goal.push_back(temp2);
+
+    int count =0;
+    for (int i =0; i < puzzle.size();i++){
+        for(int j = 0; j < puzzle[j].size(); j++){
+           if(puzzle[j][i] != goal[i][j] && puzzle[j][i] != 0)
+           count++;
+        }
+    }
+    return count;
+}
+
+int euclidean(vector<vector<int> > puzzle){
+    vector<int> temp = {1,2,3};
+    vector<int> temp1 = {4,5,6};
+    vector<int> temp2 = {7,8, 0};
+    vector<vector<int> > goal;
+    goal.push_back(temp);
+    goal.push_back(temp1);
+    goal.push_back(temp2);
+    
+    int total = 0;
+    for (int i =0; i < puzzle.size();i++){
+        for(int j = 0; j < puzzle[j].size(); j++){
+
+        }
+    }
+    return total;
 }
 
 int calcH( vector<vector<int> > puzzle, int searchType){
