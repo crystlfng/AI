@@ -89,13 +89,13 @@ void search(vector<vector<int>> grid, int searchType, vector<vector<int> > goal)
 
     int movesCount = 0;
 
-    vector<Node> path;
+    vector<Node> path; 
     path.push_back(initial);
 
-    vector<Node> heap = path;
+    vector<Node> heap = path; // kind of like the queue
     make_heap(heap.begin(), heap.end());
 
-    vector<Node> seen;
+    vector<Node> seen;  //keeps track of duplicates or visited nodes
     seen.push_back(initial);
     Node current;
 
@@ -107,20 +107,22 @@ void search(vector<vector<int>> grid, int searchType, vector<vector<int> > goal)
 
         printp(current.curr);
 
-        if(current.curr == goal){
+        if(current.curr == goal){ // get out of this loop if the puzzle is solved
             break;
         }
 
         heap.erase (heap.begin(), heap.begin()+1);
 
+        // generate the children of the current node
         vector<Node> children = getChildren(current,searchType);
 
+        // check to see if the children have been visited before
         for(int i =0;i <children.size(); i++){
             //if the current child has been seen before do nothing
             if(std::find(seen.begin(), seen.end(), children[i]) != seen.end()){}
-            else{
+            else{ // else put it in seen
                 seen.push_back(children[i]);
-                heap.push_back(children[i]);
+                heap.push_back(children[i]); // in heap to be expanded on 
                 make_heap(heap.begin(), heap.end());
             }
         }
@@ -171,7 +173,12 @@ int euclidean(vector<vector<int> > puzzle){
     int total = 0;
     for (int i =0; i < puzzle.size();i++){
         for(int j = 0; j < puzzle[j].size(); j++){
-
+            int dist= 0;
+            if(puzzle[j][i] != goal[i][j] && puzzle[j][i] != 0){
+                //find the euclidean distance from puzzle[i][j] to goal(puzzle[i][j])
+                 
+            }
+            total += dist;
         }
     }
     return total;
