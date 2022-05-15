@@ -1,0 +1,87 @@
+﻿  main.cpp
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\node.cpp(17,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\node.cpp(18,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(55,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(78,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(95,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(109,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(110,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(131,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(132,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(137,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(138,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(145,12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(146,12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(147,24): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(156,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(157,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\main.cpp(30,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\main.cpp(31,21): warning C4018: '<': signed/unsigned mismatch
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstddef(127,22): error C2676: binary '<': 'const _Ty' does not define this operator or a conversion to a type acceptable to the predefined operator
+          with
+          [
+              _Ty=Node
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstddef(126): message : while compiling class template member function 'bool std::less<_Ty>::operator ()(const _Ty &,const _Ty &) const'
+          with
+          [
+              _Ty=Node
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(1518): message : see reference to function template instantiation 'bool std::less<_Ty>::operator ()(const _Ty &,const _Ty &) const' being compiled
+          with
+          [
+              _Ty=Node
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\queue(295): message : see reference to class template instantiation 'std::less<_Ty>' being compiled
+          with
+          [
+              _Ty=Node
+          ]
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(16): message : see reference to class template instantiation 'std::priority_queue<Node,std::vector<Node,std::allocator<Node>>,std::less<_Ty>>' being compiled
+          with
+          [
+              _Ty=Node
+          ]
+  search.cpp
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\node.cpp(17,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\node.cpp(18,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(55,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(78,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(95,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(109,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(110,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(131,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(132,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(137,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(138,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(145,12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(146,12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(147,24): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(156,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(157,21): warning C4018: '<': signed/unsigned mismatch
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstddef(127,22): error C2676: binary '<': 'const _Ty' does not define this operator or a conversion to a type acceptable to the predefined operator
+          with
+          [
+              _Ty=Node
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xstddef(126): message : while compiling class template member function 'bool std::less<_Ty>::operator ()(const _Ty &,const _Ty &) const'
+          with
+          [
+              _Ty=Node
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(1518): message : see reference to function template instantiation 'bool std::less<_Ty>::operator ()(const _Ty &,const _Ty &) const' being compiled
+          with
+          [
+              _Ty=Node
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\queue(295): message : see reference to class template instantiation 'std::less<_Ty>' being compiled
+          with
+          [
+              _Ty=Node
+          ]
+C:\Users\Crystal\source\repos\cs170Project1\cs170Project1\search.cpp(16): message : see reference to class template instantiation 'std::priority_queue<Node,std::vector<Node,std::allocator<Node>>,std::less<_Ty>>' being compiled
+          with
+          [
+              _Ty=Node
+          ]
+  Generating Code...
