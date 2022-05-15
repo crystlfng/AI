@@ -12,15 +12,13 @@ def main():
     
     searchAlgo = int(input('\nType the number of the algorithm you want to run\n'
                           '1. Forward Search\n'
-                          '2. Backward Search\n'
-                          '3. Bertie\'s Search Algorithm\n'))
+                          '2. Backward Search\n'))
     
     if searchAlgo == 1:
         forward(featureNum)
     elif searchAlgo == 2:
         backward(featureNum)
-    else:
-        print("Berite's not implemented yet\n")
+
     
     
 def forward(num):
