@@ -1,22 +1,34 @@
-import copy
-from gc import set_debug
-import heapq as hp
-from queue import PriorityQueue
-import time
-import random
-from sklearn.preprocessing import StandardScaler
 import math
+import time
 
 
 def main():
+    print("Welcome to Crystal Feng's Evaluation Program.\n")
+    dataset = int(input("Which data set would you like to use?\n"
+                            "1. Small\n"
+                            "2. Large\n"))
+    
+    if(dataset == 1):
+        file = open('small-test-dataset.txt', 'r')
+    elif(dataset == 2):
+        file = open('Large-test-dataset.txt', 'r')
 
-    accuracy()
+    x = input("\nEnter the features you want to use seperated by spaces\n")
+        
+    features = x.split(' ')
 
-def accuracy():
+    for i in range(len(features)):
+        features[i]= int(features[i])
+
+    # print(features)
+
+
+    accuracy(file, features)
+
+def accuracy(file, current_set):
+    start_time = time.time()
     #open file
-    file = open('small-test-dataset.txt', 'r')
     number_correctly_classified = 0
-    current_set = [3,5,7]
     
     current_set.append(0)
     
@@ -68,13 +80,13 @@ def accuracy():
                     nearest_neighbor_location = j
                     nearest_neighbor_label = data[nearest_neighbor_location][0]
 
-        # print("object " + str(i+1) +"'s label is " + str(label_object_to_classify) +" and its nearest neighbors is at location " + str(nearest_neighbor_location+1)+ " with label " + str(nearest_neighbor_label))
-
+        print("object " + str(i+1) +"'s label is " + str(label_object_to_classify) +"\nits nearest neighbors is object " + str(nearest_neighbor_location+1)+ " with label " + str(nearest_neighbor_label))
+        print("Time to compute = " + str(time.time() - start_time) + " seconds\n\n")
         if label_object_to_classify == nearest_neighbor_label:
             number_correctly_classified += 1
     
     accuracy = number_correctly_classified/len(data)
-    print(str(accuracy))
+    print("\nAccuracy is " + str(accuracy) + "%")
 
 def euclidean(x, y):
     sum = 0
