@@ -24,6 +24,13 @@ def main():
 def forward(num):
     fset = []
     realbest = 0
+
+
+    accuracy = calcAccuracy()
+    realbest = accuracy
+    
+    print("Using no features(s) and \"random\" evaluation, I get an accuracy of " + str(accuracy) + "%\n")
+
     print("Beginning Search\n")
     
     for i in range(1,num+1):
@@ -110,3 +117,6 @@ class Node:
     
 if __name__ == '__main__':
     main()
+
+
+
