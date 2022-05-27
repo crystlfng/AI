@@ -1,5 +1,9 @@
 import math
 import time
+import sys
+import numpy as np
+from sympy import numer
+import csv
 
 
 def main():
@@ -22,8 +26,38 @@ def main():
 
     # print(features)
 
+    printnorm(file)
 
-    accuracy(file, features)
+
+    # accuracy(file, features)
+
+def printnorm(file):
+    data1 = []
+
+    #source on how to convert txt data into matrix
+    #https://stackoverflow.com/questions/48833873/turn-txt-file-into-matrix-of-ints-in-python
+    for row in file:
+        data1.append([float(x) for x in row.split()])
+
+    data = normalize(data1)
+
+    for i in range(len(data[0])):
+        if i > 0:
+            min = sys.maxsize
+            max = -sys.maxsize -1
+
+            for j in range(len(data)):
+                if data[j][i] < min:
+                    min = data[j][i]
+                if data[j][i] > max:
+                    max = data[j][i]
+        
+            print("for col " + str(i) + " the min is " +str(min) + " and the max is" + str(max) + "\n")
+
+
+    with open("output.csv", "w") as f:
+        writer = csv.writer(f)
+        writer.writerows(data)
 
 def accuracy(file, current_set):
     start_time = time.time()
@@ -32,13 +66,14 @@ def accuracy(file, current_set):
     
     current_set.append(0)
     
-    data = []
+    data1 = []
 
     #source on how to convert txt data into matrix
     #https://stackoverflow.com/questions/48833873/turn-txt-file-into-matrix-of-ints-in-python
     for row in file:
-        data.append([float(x) for x in row.split()])
+        data1.append([float(x) for x in row.split()])
 
+    data = normalize(data1)
     
     
     for i in range(len(data)):
@@ -99,7 +134,25 @@ def euclidean(x, y):
     dist = math.sqrt(sum)
     return dist
 
-   
+def normalize(data):
+    for i in range(len(data[0])):
+        if i > 0:
+            min = sys.maxsize
+            max = -sys.maxsize -1
+
+            for j in range(len(data)):
+                if data[j][i] < min:
+                    min = data[j][i]
+                if data[j][i] > max:
+                    max = data[j][i]
+        
+            denominator = max - min
+
+            for k in range(len(data)):
+                numerator = data[k][i] - min
+                data[k][i] = numerator/denominator
+
+    return data
 
 
 
